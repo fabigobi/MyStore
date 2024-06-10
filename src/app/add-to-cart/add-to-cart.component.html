@@ -1,0 +1,8 @@
+<form #form="ngForm" (ngSubmit)="addToCart()">
+    <select [(ngModel)]="amount" name="amount">
+        <option value=' ' selected></option>
+        <option *ngFor="let number of numbers" [value]="number">{{number}}</option>
+    </select>
+    <br>
+    <input type="submit" [disabled]="amount < 1" value="Submit" class="btn btn-primary">
+</form>

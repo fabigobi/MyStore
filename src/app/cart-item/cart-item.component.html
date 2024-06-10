@@ -1,0 +1,14 @@
+<div>
+    <img src={{product.url}}/>
+    <h3>{{ product.name }}</h3>
+    <p>Price:<br>${{ product.price }}</p>
+    <!--     <p>Amount:<br>{{ product.amount }}</p> -->
+    <div *ngIf="changeable">
+        <label for="amount">Amount:</label><br>
+        <select [(ngModel)]="amount" name="amount" (ngModelChange)="onChange()">
+            <option *ngFor="let number of numbers" [value]="number">{{number}}</option>
+        </select>
+    </div>
+    <p *ngIf="!changeable">Amount:<br>{{ product.amount }}</p>
+    <p>Total:<br>${{ product.total }}</p>
+</div>

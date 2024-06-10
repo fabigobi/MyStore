@@ -1,0 +1,38 @@
+<div *ngIf="products.length <= 0">
+    <h2>Nothing to see here</h2>
+    <p>Your cart seems to be empty!</p>
+    <a routerLink="">← Start shopping!</a>
+</div>
+
+<div *ngIf="products.length > 0">
+    <div id="cart-overview">
+        <h1>Your Cart 🛒</h1>
+        <app-cart-item class="cart-items" *ngFor="let product of products" [product]="product"></app-cart-item>
+    </div>
+    <div id="checkout">
+        <h1>Checkout</h1>
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <h2>Credit Card Details</h2>
+            <label for="email">E-Mail</label><br>
+            <input type="email" name="email" [(ngModel)]="email" placeholder="E-Mail" required /><br><br>
+            <label for="first_name">First Name</label><br>
+            <input type="text" name="first_name" [(ngModel)]="first_name" placeholder="First Name" required minlength="2" /><br><br>
+            <label for="last_name">Last Name</label><br>
+            <input type="text" name="last_name" [(ngModel)]="last_name" placeholder="Last Name" required minlength="2" /><br><br>
+            <label for="card_number">Card Number</label><br>
+            <input type="text" name="card_number" [(ngModel)]="card_number" placeholder="Card Number" required minlength="15" maxlength="20" /><br><br>
+            <label for="cvc">CVC</label><br>
+            <input type="text" name="cvc" [(ngModel)]="cvc" placeholder="CVC" required minlength="3" maxlength="3" /><br><br>
+            <h2>Billing Address</h2>
+            <label for="address">Address</label><br>
+            <input type="text" name="address" [(ngModel)]="address" placeholder="Address" required minlength="5" /><br><br>
+            <label for="city">City</label><br>
+            <input type="text" name="city" [(ngModel)]="city" placeholder="City" required minlength="3" /><br><br>
+            <label for="country">Country</label><br>
+            <input type="text" name="country" [(ngModel)]="country" placeholder="Country" required minlength="2" /><br><br>
+            <label for="zip_code">Zip Code</label><br>
+            <input type="text" name="zip_code" [(ngModel)]="zip_code" placeholder="Zip Code" required minlength="5" /><br>
+            <button type="Submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

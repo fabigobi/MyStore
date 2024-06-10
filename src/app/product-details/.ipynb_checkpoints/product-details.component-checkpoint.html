@@ -1,0 +1,9 @@
+<img src={{product.url}}/>
+<div>
+    <h1>{{ product.name }}</h1>
+    <p>${{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    <app-add-to-cart [product]="product"></app-add-to-cart>
+    <br>
+    <a routerLink="">← Back to product list</a>
+</div>
