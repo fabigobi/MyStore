@@ -1,0 +1,24 @@
+.select-input {
+    height: 38px;
+    margin-bottom: 5px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    text-align: center;
+    width: 52px;
+}
+
+.rounded-corners {
+    border-radius: 15px;
+}
+
+input.select-input {
+    width: 104px;
+    margin: 0;
+    padding: 5px 5px 5px 5px;
+}

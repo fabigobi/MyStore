@@ -1,9 +1,11 @@
-<img src={{product.url}}/>
-<div>
-    <h1>{{ product.name }}</h1>
-    <p>${{ product.price }}</p>
-    <p>{{ product.description }}</p>
-    <app-add-to-cart [product]="product"></app-add-to-cart>
-    <br>
-    <a routerLink="">← Back to product list</a>
+<div class="container">
+    <img src={{product.url}} />
+    <div class="detail-container">
+        <h1>{{ product.name }}</h1>
+        <p>${{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <app-add-to-cart [product]="product"></app-add-to-cart>
+        <br>
+        <a routerLink="" class="back-link">← Back to product list</a>
+    </div>
 </div>

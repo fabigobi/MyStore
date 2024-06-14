@@ -20,16 +20,23 @@ export class CheckoutComponent implements OnInit {
     card_number: string = "";
     cvc: string = "";
     total: number = 0;
-    
+
     constructor(private cartService: CartService, private userDataService: UserDataService) { }
 
     ngOnInit(): void {
         this.products = this.cartService.getProductsInCart();
-        for (let index = 0; index < this.products.length; index++){
+        for (let index = 0; index < this.products.length; index++) {
             this.total += this.products[index].total;
         }
-        
+
+        this.total = parseFloat(this.total.toFixed(2));
+
         [this.email, this.first_name, this.last_name, this.address, this.city, this.country, this.zip_code, this.card_number, this.cvc] = this.userDataService.getUserData();
     }
 
+    onSubmit(): void {
+        this.cartService.clearCart();
+        this.userDataService.clearInfo();
+        alert("Your order was submitted!")
+    }
 }

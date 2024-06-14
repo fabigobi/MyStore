@@ -1,0 +1,28 @@
+img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.cart-item-container {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    justify-items: center;
+    align-items: center;
+}
+
+.cart-item-container * {
+    margin: 0;
+}
+
+select {
+    width: 60px;
+    margin-bottom: 5px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    text-align: center;
+}

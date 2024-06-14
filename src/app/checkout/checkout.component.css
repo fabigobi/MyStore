@@ -1,0 +1,79 @@
+.bold {
+    font-weight: bold;
+}
+
+select {
+    height: 38px;
+    margin-bottom: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    text-align: center;
+    width: 52px;
+}
+
+.rounded-corners {
+    border-radius: 15px;
+}
+
+#checkout-information-container {
+    display: grid;
+    grid-template-areas:
+        "title . . "
+        "personal payment summary"
+        ". button .";
+    grid-template-columns: repeat(3, 26.66%);
+    justify-content: space-evenly;
+    margin-bottom: 2vw;
+}
+
+.content-container {
+    box-shadow: 0 0px 8px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.content-container h3 {
+    margin-bottom: 32px;
+}
+
+.content-container p {
+    margin-bottom: 8px;
+}
+
+#personal-info {
+    grid-area: personal;
+}
+
+#payment-info {
+    grid-area: payment;
+}
+
+#cost-summary {
+    grid-area: summary;
+}
+
+#empty-cart {
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
+    margin: auto;
+}
+
+#information-container h1 {
+    grid-area: title;
+}
+
+form {
+    grid-area: button;
+    margin: auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#order-information {
+    margin: auto;
+    width: 95%;
+}

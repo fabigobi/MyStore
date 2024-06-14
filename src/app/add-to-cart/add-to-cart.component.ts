@@ -19,9 +19,15 @@ export class AddToCartComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    addToCart(): void{
+    addToCart(): void {
         this.product.amount = this.amount;
         this.amount = 0;
         this.cartService.addToCart(this.product);
+        if (this.product.amount > 1) {
+            window.alert(`Added to cart: ${this.product.name} (${this.product.amount} times)`)
+        }
+        else {
+            window.alert(`Added to cart: ${this.product.name} (${this.product.amount} time)`)
+        };
     }
 }

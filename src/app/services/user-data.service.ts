@@ -16,7 +16,7 @@ export class UserDataService {
 
     constructor() { }
 
-    inputUserData(email: string, first_name: string, last_name: string, address: string, city: string, country: string, zip_code: string, card_number: string, cvc: string): void{
+    inputUserData(email: string, first_name: string, last_name: string, address: string, city: string, country: string, zip_code: string, card_number: string, cvc: string): void {
         this.email = email;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -31,5 +31,17 @@ export class UserDataService {
     getUserData(): any {
         let data = [this.email, this.first_name, this.last_name, this.address, this.city, this.country, this.zip_code, this.card_number, this.cvc];
         return data;
+    }
+
+    clearInfo(): void {
+        this.email = "";
+        this.first_name = "";
+        this.last_name = "";
+        this.address = "";
+        this.city = "";
+        this.country = "";
+        this.zip_code = "";
+        this.card_number = "";
+        this.cvc = "";
     }
 }

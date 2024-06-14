@@ -20,7 +20,7 @@
             "outputPath": "dist/MyStore",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
@@ -84,7 +84,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "MyStore"
+  "defaultProject": "MyStore",
+  "cli": {
+    "analytics": "5f8f5663-fd13-41bb-b5aa-9f766b6b9cba"
+  }
 }

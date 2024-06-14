@@ -1,31 +1,39 @@
-<div *ngIf="products.length <= 0">
+<div id="empty-cart" class="content-container" *ngIf="products.length <= 0">
     <h2>Nothing to see here</h2>
     <p>Your cart seems to be empty!</p>
     <a routerLink="">← Start shopping!</a>
 </div>
 
 <div *ngIf="products.length > 0" id="checkout-container">
-    <div>
+    <div id="checkout-information-container">
         <h1>Your Information</h1>
-        <div class="personal-info">
-            <h3>Personal Info</h3>
-            <p style="font-weight: bold">{{ first_name }} {{ last_name }}</p>
+        <div id="personal-info" class="content-container">
+            <h3 class="bold">Personal Info</h3>
+            <p class="bold">{{ first_name }} {{ last_name }}</p>
             <p>{{ email }}</p>
             <p>{{ address }}</p>
             <p>{{ city }}, {{ zip_code }}</p>
             <p>{{ country }}</p>
         </div>
-        <div class="payment-info"></div>
-        <h3>Payment Info</h3>
-        <p>Credit Card:</p>
-        <p>{{ card_number }}</p>
-        <div class="cost-summary"></div>
-        <h3>Cost Summary</h3>
-        <p></p>
-        <p style="font-weight: bold">Total: {{ total }}</p>
+        <div id="payment-info" class="content-container">
+            <h3 class="bold">Payment Info</h3>
+            <p>Credit Card:</p>
+            <p>{{ card_number }}</p>
+        </div>
+        <div id="cost-summary" class="content-container">
+            <h3 class="bold">Cost Summary</h3>
+            <p>Total:</p>
+            <p class="bold">${{ total }}</p>
+        </div>
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <input type="submit" value="Submit order" class="btn btn-primary select-input rounded-corners">
+        </form>
     </div>
-    <div>
+    <div id="order-information" class="content-container">
         <h1>Your Order</h1>
-        <app-cart-item class="cart-items" *ngFor="let product of products" [product]="product" [changeable]="false"></app-cart-item>
+        <div *ngFor=" let product of products; index as index">
+            <app-cart-item class="cart-items" [product]="product" [changeable]="false"></app-cart-item>
+            <hr *ngIf="index < (products.length-1)">
+        </div>
     </div>
 </div>
