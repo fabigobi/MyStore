@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
     products: Product[] = [];
+    total: number = 0;
     constructor(private cartService: CartService, private router: Router, private userDataService: UserDataService) {
     }
 
@@ -26,11 +27,12 @@ export class CartComponent implements OnInit {
 
     ngOnInit(): void {
         this.products = this.cartService.getProductsInCart();
-        [this.email, this.first_name, this.last_name, this.address, this.city, this.country, this.zip_code, this.card_number, this.cvc] = this.userDataService.getUserData()
+        [this.email, this.first_name, this.last_name, this.address, this.city, this.country, this.zip_code, this.card_number, this.cvc] = this.userDataService.getUserData();
+        this.total = this.cartService.getTotal();
     }
 
     onSubmit(): void {
-        this.userDataService.inputUserData(this.email, this.first_name, this.last_name, this.address, this.city, this.country, this.zip_code, this.card_number, this.cvc)
+        this.userDataService.inputUserData(this.email, this.first_name, this.last_name, this.address, this.city, this.country, this.zip_code, this.card_number, this.cvc);
 
         this.email = "";
         this.first_name = "";
@@ -42,5 +44,9 @@ export class CartComponent implements OnInit {
         this.card_number = "";
         this.cvc = "";
         this.router.navigateByUrl('/checkout');
+    }
+
+    onUpdate(): void {
+        this.total = this.cartService.getTotal();
     }
 }

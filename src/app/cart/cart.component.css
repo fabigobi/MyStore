@@ -7,6 +7,7 @@
     grid-template-areas: "cart checkout";
     grid-template-columns: 65% 25%;
     justify-content: space-evenly;
+    margin-bottom: 64px;
 }
 
 .content-container {
@@ -16,15 +17,26 @@
     height: max-content;
 }
 
-.cart-items {
-    margin-bottom: 32px;
-}
-
-
 #cart-overview {
     grid-area: cart;
     display: flex;
     flex-direction: column;
+}
+
+#total {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    justify-items: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+#total p {
+    grid-column: 5;
+}
+
+#total * {
+    margin: 0;
 }
 
 #checkout {
@@ -48,4 +60,15 @@ h1 {
 
 input {
     width: 90%;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+
+label span {
+    color: red;
+}
+
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched {
+    background-color: rgb(255, 198, 198);
 }

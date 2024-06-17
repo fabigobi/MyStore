@@ -18,6 +18,10 @@ select {
     border-radius: 15px;
 }
 
+#checkout-container {
+    margin-bottom: 64px;
+}
+
 #checkout-information-container {
     display: grid;
     grid-template-areas:

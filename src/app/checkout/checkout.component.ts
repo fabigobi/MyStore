@@ -25,11 +25,7 @@ export class CheckoutComponent implements OnInit {
 
     ngOnInit(): void {
         this.products = this.cartService.getProductsInCart();
-        for (let index = 0; index < this.products.length; index++) {
-            this.total += this.products[index].total;
-        }
-
-        this.total = parseFloat(this.total.toFixed(2));
+        this.total = this.cartService.getTotal();
 
         [this.email, this.first_name, this.last_name, this.address, this.city, this.country, this.zip_code, this.card_number, this.cvc] = this.userDataService.getUserData();
     }

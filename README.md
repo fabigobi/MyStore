@@ -3,6 +3,12 @@
 ## Description
 This project was developed by me for the Udacity course "Angular Fundamentals".
 It is an example of an e-commerce website.
+Among other things, the features in this example:
+- Adding products to cart
+- Removing products from cart
+- Updating products within the cart overview
+- Form validation for user inputs
+- Automatic calculation of price total whenever a product is updated within the cart
 
 ## Installation
 Node and npm need to be installed. 
